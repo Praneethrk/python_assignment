@@ -13,8 +13,9 @@ for i in lst:
         d[i] += 1
     else:
         d[i] = 1
-
+for key in d:
+        print(f"{key} : {d[key]}")
 maxi = max(d, key=lambda key: d[key])
 mini = min(d, key=lambda key: d[key])
-print(f"maximum : {maxi} : {d[maxi]}")
-print(f"Minimum : {mini} : {d[mini]}")
+print(f"maximum :-> {maxi} : {d[maxi]}")
+print(f"Minimum :-> {mini} : {d[mini]}")

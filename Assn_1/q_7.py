@@ -1,3 +1,7 @@
+'''
+7.	Write a program to accept a number from the user and determine the sum of digits of that number. 
+    Repeat the operation until the sum gets to be a single digit number.
+'''
 def split_number(num):
     digits = list()
     while num > 0:    
