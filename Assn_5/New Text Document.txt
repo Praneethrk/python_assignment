@@ -1,0 +1,42 @@
+a. db.faculty.find({})
+
+b.db.faculty.find({}).count()
+
+c.db.faculty.find({qualification:"Ph.D"})
+
+d.db.faculty.find({exp:{$gt:8,$lt:12}})
+
+e.db.faculty.find({subjects:{$in:["MATHS","NETWORKING"]}})
+
+f.db.faculty.find({'subjects':"MATHS",'age':{$gt:30},'qualification':"Ph.D"})
+
+g.
+
+h.db.faculty.insertOne({"name":"Suresh Babu", "age":55,"gender":"M","exp":25,"subjects":["MATHS","DE"],"type":"Full Time", "qualification":"Ph.D"})
+
+i.db.faculty.updateMany({},{$inc:{age:1,exp:1}})
+
+j.db.faculty.update({name:"Sivani"},{$set:{qualification:"Ph.D",type:"Full Time"}})
+
+k.db.faculty.updateMany({subjects:"MATHS"},{$push:{"subjects":"ML"}})
+
+l.db.faculty.remove({'age':{$gte:55}})
+
+m.db.faculty.find({},{name:1,qualification:1,_id:0})
+
+n.db.faculty.find({},{name:1,qualification:1,_id:0,exp:1}).sort({'exp':1})
+
+o.db.faculty.find({}).sort({'age':-1}).limit(5)
+
+p.db.faculty.find({subjects:"JAVA"},{name:1})
+
+q.db.faculty.find({subjects:"JAVA"}).count()
+
+r.
+
+s.db.faculty.find({subjects:"JAVA",gender:"F"}).count()
+
+t.db.faculty.aggregate( [
+        { $group: { _id:"$qualification" ,count:{$sum:1}}},
+        {$project:{'Qualfication':'$_id',"Total Count":'$count',_id:0}}
+] )
